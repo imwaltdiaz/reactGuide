@@ -604,3 +604,53 @@ export default ExpenseDate;
 ```
 
 > ⚠️ Notice how the props are passed first to ExpenseItem and then to ExpenseDate
+
+Converting Expenses into another module
+
+```js
+// and in app welll only have  <Expenses items={expenses}/>
+
+import ExpenseItem from "./ExpenseItem";
+import './Expenses.css'
+
+function Expenses(props) {
+  return (
+    <div className="expenses">
+      <ExpenseItem
+      title={props.items[0].title}
+      amount={props.items[0].amount}
+      date={props.items[0].date}
+    ></ExpenseItem>
+    <ExpenseItem
+      title={props.items[1].title}
+      amount={props.items[1].amount}
+      date={props.items[1].date}
+    ></ExpenseItem>
+    <ExpenseItem
+      title={props.items[2].title}
+      amount={props.items[2].amount}
+      date={props.items[2].date}
+    ></ExpenseItem>
+    <ExpenseItem
+      title={props.items[3].title}
+      amount={props.items[3].amount}
+      date={props.items[3].date}
+    ></ExpenseItem>
+    </div>
+  )
+}
+export default Expenses
+```
+
+### Composition or Children props
+
+What if we create a component as a shell to another components
+
+Lets say extract styles from one component and pass to another
+
+You cant use custom elements (components) as a wrappers
+
+The value of children prop will be the content inside the open and closing cards
+
+U have to tell ur custem elements that will contain some components
+
